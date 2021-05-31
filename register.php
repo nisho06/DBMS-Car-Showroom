@@ -32,12 +32,19 @@
 
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+	<!-- validation -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+
 
 <style>
 
@@ -145,15 +152,15 @@
 	<div class="page-content" style = "width:35%; margin:10px 20px 10px 180px;">
 		<div class="form-v2-content" style="border: 5px inset grey; border-radius:9px; height:60% ; margin-bottom:20px;">
 
-			<form class="form-detail" action="#" method="post" id="myform">
+			<form class="form-detail" action="#" method="post" name = "myform" id="myform">
 				<h2>REGISTER</h2>
 				<div class="form-row">
-					<label for="full-name">Full Name:</label>
-					<input type="text" name="full_name" id="full_name" class="input-text" placeholder="ex: Lindsey Wilson">
+					<label for="full_name">Full Name:</label>
+					<input type="text" name="full_name" id="full_name" class="input-text" placeholder="ex: Lindsey Wilson" required>
 				</div>
 				<div class="form-row">
 					<label for="your_email">Your Email:</label>
-					<input type="text" name="your_email" id="your_email" class="input-text" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" placeholder="support@autoexpress.com">
+					<input type="email" name="your_email" id="your_email" class="input-text" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" placeholder="lindsey@gmail.com">
 				</div>
 				<div class="form-row">
 					<label for="address">Address:</label>
@@ -174,8 +181,7 @@
 				</div>
 				<div class="form-row-last">
 				<a href="#myModal" class="trigger-btn" data-toggle="modal">
-					<input href="login.php" type="submit" name="register" class="register" value="Register">
-</a>
+					<input href="login.php" type="submit" name="register" class="register"   value="Register">
 </div>
 
 
@@ -206,10 +212,10 @@
 <?php include "./footer.html"?>
 
 
-	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<!-- <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
-	<script>
+	<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script> -->
+	<!-- <script>
 		// just for the demos, avoids form submit
 		jQuery.validator.setDefaults({
 		  	debug: true,
@@ -222,7 +228,21 @@
 		    	password: "required",
 		    	confirm_password: {
 		      		equalTo: "#password"
-		    	}
+		    	},
+		    	your_email: {
+			        required: true,
+			        email: true
+			      },
+			      phone : {
+			      	required: true,
+					  number: true,
+					  minlength: 10,
+					  maxlength: 10
+			      },
+			      psw: {
+			        required: true,
+			        minlength: 5
+			      }
 		  	},
 		  	messages: {
 		  		full_name: {
@@ -235,7 +255,8 @@
 					required: "Please provide an address"	
 				},
 				phone: {
-					required: "Please provide a phone number"
+					required: "Please provide a phone number",
+					minlength: "Your password must be at least 5 characters long"
 				},
 		  		password: {
 	  				required: "Please provide a password"
@@ -245,10 +266,66 @@
 		      		equalTo: "Wrong Password"
 		    	}
 		  	}
+		  	submitHandler: function(form) {
+      form.submit();
+    }
+
 		});
-	</script>
+	</script> -->
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
+
+<script type="text/javascript">
+	// Wait for the DOM to be ready
+$(function() {
+  // Initialize form validation on the registration form.
+  // It has the name attribute "registration"
+  $("form[name='myform']").validate({
+    // Specify validation rules
+    rules: {
+      // The key name on the left side is the name attribute
+      // of an input field. Validation rules are defined
+      // on the right side
+      full_name: "required",
+      // lastname: "required",
+      your_email: {
+        required: true,
+        // Specify that email should be validated
+        // by the built-in "email" rule
+        email: true
+      },
+      phone : {
+      	required: true,
+		  number: true,
+		  minlength: 10,
+		  maxlength: 10
+      },
+      psw: {
+        required: true,
+        minlength: 5
+      }
+    },
+    // Specify validation error messages
+    messages: {
+      username: "Please enter your username",
+      password: {
+        required: "Please provide a password",
+        minlength: "Your password must be at least 5 characters long"
+      },
+      email: "Please enter a valid email address",
+      phone: {required:"Please enter a valid phone number",
+  				minlength:"Please enter a valid phone number",
+  				maxlength:"Please enter a valid phone number", 
+  				number:"Please enter a valid phone number" }
+    },
+    // Make sure the form is submitted to the destination defined
+    // in the "action" attribute of the form when valid
+    submitHandler: function(form) {
+      form.submit();
+    }
+  });
+});
+</script>>
 
 
 <?php 

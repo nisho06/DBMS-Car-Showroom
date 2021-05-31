@@ -87,6 +87,13 @@ if(!empty($_POST['your_email']) && !empty($_POST['psw'])) {
 	<!-- Jquery -->
 	<link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
 	<!-- Main Style Css -->
+
+	<!-- validation -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+
     
 </head>
 <body class="form-v2">
@@ -115,7 +122,7 @@ if(!empty($_POST['your_email']) && !empty($_POST['psw'])) {
 	<div class="page-content" style = "width:30%; margin:10px 20px 5px 200px;">
 		<div class="form-v2-content" style="border: 5px inset grey; border-radius:9px">
 
-			<form class="form-detail" action="#" method="post" id="myform">
+			<form class="form-detail" action="#" method="post" name="myform" id="myform">
 				<h2>LOGIN</h2>
 				
 				<div class="form-row">
@@ -124,7 +131,7 @@ if(!empty($_POST['your_email']) && !empty($_POST['psw'])) {
 				</div>
 								
 				<div class="form-row">
-					<label for="password">Password:</label>
+					<label for="psw">Password:</label>
 					<input type="password" id="psw" name="psw" class="input-text"  required>
 
 				
@@ -148,6 +155,41 @@ if(!empty($_POST['your_email']) && !empty($_POST['psw'])) {
 
 </body>
 </html>
+
+<script type="text/javascript">
+	// Wait for the DOM to be ready
+$(function() {
+  // Initialize form validation on the registration form.
+  // It has the name attribute "registration"
+  $("form[name='myform']").validate({
+    // Specify validation rules
+    rules: {
+      // The key name on the left side is the name attribute
+      // of an input field. Validation rules are defined
+      // on the right side
+      // lastname: "required",
+      your_email: {
+        required: true,
+        // Specify that email should be validated
+        // by the built-in "email" rule
+        email: true
+      }
+    },
+    // Specify validation error messages
+    messages: {
+      // userphone: "Please enter valid phone number",
+      // lastname: "Please enter your lastname",
+      
+      email: "Please enter a valid email address"
+    },
+    // Make sure the form is submitted to the destination defined
+    // in the "action" attribute of the form when valid
+    submitHandler: function(form) {
+      form.submit();
+    }
+  });
+});
+</script>> 
     	
     	
             

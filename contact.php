@@ -33,6 +33,13 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
+<!-- validation -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
 <style>
     
 .modal-confirm {		
@@ -111,6 +118,10 @@
 	margin: 50px auto;
 	padding-right: 500px;
 }
+.error {
+  color: #F00;
+  background-color: #FFF;
+}
 </style>
 
 </head>
@@ -152,17 +163,17 @@
 		<div class="single"  style="border: 5px inset grey; border-radius:9px">
 			<div class="heading">
 				<h2 style="color:#343a40 ; font-weight:900 ; font-size:50px">Contact Us</h2>
-				<p style = "font-size:20px; width:500px; font-family:Garamond,Times New Roman,Georgia ; margin-left:28px;">If you have any query, please contact us by filling the form below .
-				    We will respond you as soon as posible!  </p>
+				<p style = "font-size:30px; width:500px; font-family:Garamond,Times New Roman,Georgia ; margin-left:28px;">Please contact us by filling the form below.
+				    We will respond you as soon as possible!  </p>
 			</div>
 			<div class="section group" >
 				<div class="col span_2_of_contact">
 				  <div class="contact-form">
 				  
-					    <form method="post" action="contact.php">
+					    <form method="post" name="contact" action="contact.php">
 					    	<div>
 						    	<span style="font-size:20px"><label>Name :-</label></span>
-						    	<span style="font-size:20px"><input name="userName" type="text" class="textbox" placeholder="John" style="width:90%"></span>
+						    	<span style="font-size:20px"><input name="userName" type="text" class="textbox" required placeholder="John" style="width:90%"></span>
 						    </div>
 						    <div>
 						    	<span  style="font-size:20px"><label>E-Mail :-</label></span>
@@ -213,6 +224,43 @@
 </body>
 </html>
 
-    	
-    	
+ 
+  <script type="text/javascript">
+	// Wait for the DOM to be ready
+$(function() {
+  // Initialize form validation on the registration form.
+  // It has the name attribute "registration"
+  $("form[name='contact']").validate({
+
+    // Specify validation rules
+    rules: {
+      // The key name on the left side is the name attribute
+      // of an input field. Validation rules are defined
+      // on the right side
+      userName: {required : true},
+      // lastname: "required",
+      userEmail: {
+        required: true,
+        // Specify that email should be validated
+        // by the built-in "email" rule
+        email: true
+      }
+    },
+    // Specify validation error messages
+    messages: {
+      userName: "Please enter your username",
+      // userphone: "Please enter valid phone number",
+      // lastname: "Please enter your lastname",
+      
+      userEmail: "Please enter a valid email address"    },
+    // Make sure the form is submitted to the destination defined
+    // in the "action" attribute of the form when valid
+    submitHandler: function(form) {
+      form.submit();
+    }
+  });
+});
+
+
+</script>>  	
             
