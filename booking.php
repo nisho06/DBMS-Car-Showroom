@@ -98,7 +98,13 @@ if(isset($_POST['book']))
 
 <div class="navbar navbar-expand-lg bg-dark navbar-dark">
 	<div class="container-fluid">
-		<a href="index.php" class="navbar-brand">Auto Express</a>
+	<?php
+	if(isset($_SESSION['s_name'])){
+		echo '<a href="indexlogin.php" class="navbar-brand">Auto Express</a> ';
+	}else {
+		echo '<a href="index.php" class="navbar-brand">Auto Express</a> '	;
+		}
+	?>
 		<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -147,54 +153,54 @@ if(isset($_POST['book']))
                
               <select name = "model" ID = 'corpusname' style="width:575px; height: 40px;" >
                 <!-- <option value = ""  selected disabled hidden >-Select a Car-</option> -->
-                <option value = "" disabled style = ' font-weight: 500'>  - Toyota -</option>
+                <option value = "" disabled style = ' font-weight: 700'>  Toyota</option>
                 
                 
-				<option value = "Land Cruiser Prado"> &nbsp;Land Cruiser Prado</option>
-				<option value = "Fortuner"> &nbsp;Fortuner </option>
-				<option value = "Camry">  &nbsp;Camry </option>
-				<option value = "Innova Crysta"> &nbsp;Innova Crysta </option>
-				<option value = "Etios Cross"> &nbsp;Etios Cross</option>
+				<option value = "Land Cruiser Prado"> &nbsp;&nbsp;&nbsp;&nbsp;Land Cruiser Prado</option>
+				<option value = "Fortuner"> &nbsp;&nbsp;&nbsp;&nbsp;Fortuner </option>
+				<option value = "Camry"> &nbsp;&nbsp;&nbsp;&nbsp;Camry </option>
+				<option value = "Innova Crysta"> &nbsp;&nbsp;&nbsp;&nbsp;Innova Crysta </option>
+				<option value = "Etios Cross"> &nbsp;&nbsp;&nbsp;&nbsp;Etios Cross</option>
 				
-				<option value = "" disabled style = ' font-weight: 500'> - Audi - </option>
+				<option value = "" disabled style = ' font-weight: 700'> Audi </option>
 				
-				<option value = "R8"> &nbsp;R8</option>
-				<option value = "Q7"> &nbsp;Q7 </option>
-				<option value = "RS7">&nbsp;RS7 </option>
-				<option value = "A8">&nbsp;A8</option>
-				<option value = "TT">  &nbsp;TT</option>
+				<option value = "R8"> &nbsp;&nbsp;&nbsp;&nbsp;R8</option>
+				<option value = "Q7"> &nbsp;&nbsp;&nbsp;&nbsp;Q7 </option>
+				<option value = "RS7"> &nbsp;&nbsp;&nbsp;&nbsp;RS7 </option>
+				<option value = "A8"> &nbsp;&nbsp;&nbsp;&nbsp;A8</option>
+				<option value = "TT"> &nbsp;&nbsp;&nbsp;&nbsp;TT</option>
 				
-				<option value = "" disabled style = ' font-weight: 500'> - BMW - </option>
+				<option value = "" disabled style = ' font-weight: 700'> BMW </option>
 				
-				<option value = "M4"> &nbsp;M4 </option>
-				<option value = "X6">&nbsp; X6 </option>
-				<option value = "i8"> &nbsp;i8</option>
-				<option value = "M3"> &nbsp; M3</option>
-				<option value = "X3">  &nbsp;X3 </option>
+				<option value = "M4"> &nbsp;&nbsp;&nbsp;&nbsp;M4 </option>
+				<option value = "X6"> &nbsp;&nbsp;&nbsp;&nbsp;X6 </option>
+				<option value = "i8"> &nbsp;&nbsp;&nbsp;&nbsp;i8</option>
+				<option value = "M3"> &nbsp;&nbsp;&nbsp;&nbsp;M3</option>
+				<option value = "X3"> &nbsp;&nbsp;&nbsp;&nbsp;X3 </option>
 				
-				<option value = ""disabled style = ' font-weight: 500'> - Chervolet -</option>
+				<option value = ""disabled style = ' font-weight: 700'> Chervolet</option>
 				
-				<option value = "Trailblazer">  &nbsp;Trailblazer </option>
-				<option value = "Cruze"> &nbsp;Cruze</option>
-				<option value = "Sail">  &nbsp;Sail</option>
-				<option value = "Beat">&nbsp;Beat </option>
-				<option value = "Volt">&nbsp;Volt</option>
+				<option value = "Trailblazer"> &nbsp;&nbsp;&nbsp;&nbsp;Trailblazer </option>
+				<option value = "Cruze"> &nbsp;&nbsp;&nbsp;&nbsp;Cruze</option>
+				<option value = "Sail"> &nbsp;&nbsp;&nbsp;&nbsp;Sail</option>
+				<option value = "Beat"> &nbsp;&nbsp;&nbsp;&nbsp;Beat </option>
+				<option value = "Volt"> &nbsp;&nbsp;&nbsp;&nbsp;Volt</option>
 								
-				<option value = "" disabled style = ' font-weight: 500'> - Aston - </option>
+				<option value = "" disabled style = ' font-weight: 700'> Aston </option>
 				
-				<option value = "Db11"> &nbsp;Martin Db11 </option>
-				<option value = "Rapide"> &nbsp;Martin Rapide</option>
-				<option value = "Vanquish">&nbsp;Martin Vanquish</option>
-				<option value = "Vantage"> &nbsp;Martin Vantage</option>
-				<option value = "vulcan">  &nbsp;vulcan</option>	
+				<option value = "Db11"> &nbsp;&nbsp;&nbsp;&nbsp;Martin Db11 </option>
+				<option value = "Rapide"> &nbsp;&nbsp;&nbsp;&nbsp;Martin Rapide</option>
+				<option value = "Vanquish"> &nbsp;&nbsp;&nbsp;&nbsp;Martin Vanquish</option>
+				<option value = "Vantage"> &nbsp;&nbsp;&nbsp;&nbsp;Martin Vantage</option>
+				<option value = "vulcan"> &nbsp;&nbsp;&nbsp;&nbsp;vulcan</option>	
 
-				<option value = "" disabled style = ' font-weight: 500'> - Mitsubishi - </option>
+				<option value = "" disabled style = ' font-weight: 700'> Mitsubishi </option>
 				
-				<option value = "Cedia">  &nbsp;Cedia </option>
-				<option value = "Lancer"> &nbsp;Lancer</option>
-				<option value = "Montero">  &nbsp;Montero</option>
-				<option value = "Outlander"> &nbsp;Outlander </option>
-				<option value = "Pajero"> &nbsp;Pjero</option>
+				<option value = "Cedia"> &nbsp;&nbsp;&nbsp;&nbsp;Cedia </option>
+				<option value = "Lancer"> &nbsp;&nbsp;&nbsp;&nbsp;Lancer</option>
+				<option value = "Montero">  &nbsp;&nbsp;&nbsp;&nbsp;Montero</option>
+				<option value = "Outlander"> &nbsp;&nbsp;&nbsp;&nbsp;Outlander </option>
+				<option value = "Pajero"> &nbsp;&nbsp;&nbsp;&nbsp;Pjero</option>
 				<!-- <option value = "" disabled> </option> -->
 			</select>
              </div>
@@ -226,15 +232,3 @@ if(isset($_POST['book']))
 
 </body>
 </html>
-
-
-
-
-
-
-        
-        
-       
-    	
-    	
-            

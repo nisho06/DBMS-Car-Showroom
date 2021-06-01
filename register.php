@@ -180,35 +180,35 @@
 					<input type="password" name="confirm_password" class="input-text" id="confirm_password" class="input-text" required>
 				</div>
 				<div class="form-row-last">
-				<a href="#myModal" class="trigger-btn" data-toggle="modal">
+				<!-- <a href="#myModal" class="trigger-btn" data-toggle="modal"> -->
+				<!-- <input href="home.php" type="submit" name="login" class="register" value="Sign In"> -->
 					<input href="login.php" type="submit" name="register" class="register"   value="Register">
-</div>
-
-
-<div id="myModal" class="modal fade">
-	<div class="modal-dialog modal-confirm">
-		<div class="modal-content">
-			<div class="modal-header">
-				<div class="icon-box">
-					<i class="material-icons">&#xE876;</i>
-				</div>				
-				<h4 class="modal-title w-100">Success!</h4>	
-			</div>
-			<div class="modal-body">
-				<p class="text-center">Your have been registered sucessfully.</p>
-			</div>
-			<div class="modal-footer">
-				<button class="btn btn-success btn-block" data-dismiss="modal" onclick="window.location.href='login.php'"><h2>LOGIN</h2></button>
-			</div>
-		</div>
-	</div>
-</div>
+				</div>
+				<!-- <div id="myModal" class="modal fade">
+					<div class="modal-dialog modal-confirm">
+						<div class="modal-content">
+							<div class="modal-header">
+								<div class="icon-box">
+									<i class="material-icons">&#xE876;</i>
+								</div>				
+								<h4 class="modal-title w-100">Success!</h4>	
+							</div>
+							<div class="modal-body">
+								<p class="text-center">Your have been registered sucessfully.</p>
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-success btn-block" data-dismiss="modal" onclick="window.location.href='login.php'"><h2>LOGIN</h2></button>
+							</div>
+						</div>
+					</div>
+				</div> -->
 			</form>
 		</div>
 	</div>
 				<img src="./images/register_car.png" height="100%" width="62%" style="position:absolute; left:650px ; top:150px">
 
-	
+
+				
 <?php include "./footer.html"?>
 
 
@@ -332,7 +332,7 @@ $(function() {
 $db=mysqli_connect("localhost","root","","car_showroom");
 
 // REGISTER USER
-if(isset($_POST['reg'])) 
+if(isset($_POST['register'])) 
 {
     
     
@@ -351,8 +351,27 @@ if(isset($_POST['reg']))
         
         $message = "registration done ! ";
          echo "<script type='text/javascript'>alert('$message');</script>";
-        
-      
+
+	// 	echo 
+	// 	"<div id=\"myModal\" class=\"modal fade\">
+	// 	<div class=\"modal-dialog modal-confirm\">
+	// 		<div class=\"modal-content\">
+	// 			<div class=\"modal-header\">
+	// 				<div class=\"icon-box\">
+	// 					<i class=\"material-icons\">&#xE876;</i>
+	// 				</div>				
+	// 				<h4 class=\"modal-title w-100\">Success!</h4>	
+	// 			</div>
+	// 			<div class=\"modal-body\">
+	// 				<p class=\"text-center\">Your have been registered sucessfully.</p>
+	// 			</div>
+	// 			<div class=\"modal-footer\">
+	// 				<button class=\"btn btn-success btn-block\" data-dismiss=\"modal\" onclick=\"window.location.href='login.php'\"><h2>LOGIN</h2></button>
+	// 			</div>
+	// 		</div>
+	// 	</div>
+	// </div>";
+    
     }
 	
 		
