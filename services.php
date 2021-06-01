@@ -35,7 +35,13 @@ session_start();
 <body>
 <div class="navbar navbar-expand-lg bg-dark navbar-dark">
 	<div class="container-fluid">
-		<a href="index.php" class="navbar-brand">Auto Express</a>
+	<?php
+	if(isset($_SESSION['s_name'])){
+		echo '<a href="indexlogin.php" class="navbar-brand">Auto Express</a> ';
+	}else {
+		echo '<a href="index.php" class="navbar-brand">Auto Express</a> '	;
+		}
+	?>
 		<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
 			<span class="navbar-toggler-icon"></span>
 		</button>
